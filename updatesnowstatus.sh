@@ -1,14 +1,14 @@
 #!/bin/sh
 curl -l http://54.165.238.50:8888/job/updatesnow/lastBuild/api/json > jenkin_status
 
-result = sed 's/\,/\,\n/g' jenkin_status | grep result | sed 's/"//g'| cut -d : -f 2 | sed 's/\,//g'
-sysid = sed 's/\,/\,\n/g' create_incident.txt | grep sys_id | sed 's/"//g'| cut -d : -f 2 | sed 's/\,//g'
+result=sed 's/\,/\,\n/g' jenkin_status | grep result | sed 's/"//g'| cut -d : -f 2 | sed 's/\,//g'
+sysid=sed 's/\,/\,\n/g' create_incident.txt | grep sys_id | sed 's/"//g'| cut -d : -f 2 | sed 's/\,//g'
+
+restapiurl="https://kgv06:password-1@cognizantclouddemo.service-now.com/api/now/table/incident/"$sysid
 
 echo $result
 echo $sysid
 echo $restapiurl
-
-restapiurl="https://kgv06:password-1@cognizantclouddemo.service-now.com/api/now/table/incident/"$sysid
 
 if [ $result == "SUCCESS" ]
 then
