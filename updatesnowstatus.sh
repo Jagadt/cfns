@@ -14,5 +14,5 @@ if [ $resultfrom == SUCCESS ]
 then
 curl  -H "Content-Type: application/json" -X PUT -d '{"work_notes":"Jenkins JOB success","incident_state":"6" }' $restapiurl
 else
-curl  -H "Content-Type: application/json" -X PUT -d '{"short_description":"Jenkins JOB  failed" }' $restapiurl
+curl  -H "Content-Type: application/json" -X PUT -d '{"work_notes":"Jenkins JOB  failed" }' $restapiurl
 fi
