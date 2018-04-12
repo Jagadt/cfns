@@ -2,7 +2,7 @@
 
 sysid=`curl  -H "Content-Type: application/json" -X POST -d '{"short_description":"Jenkins pipeline triggered to execute service catalog item","assignment_group":"d625dccec0a8016700a222a0f7900d06"}' https://kgv06:password-1@cognizantclouddemo.service-now.com/api/now/table/incident | sed 's/\,/\,\n/g' | grep sys_id | sed 's/"//g'| cut -d : -f 2 | sed 's/\,//g'`
 echo "SYSID=" $sysid
-#aws cloudformation  create-stack --stack-name drupalstack --region us-east-1 --template-body file://drupal.json --parameters ParameterKey=InstanceType,ParameterValue=t2.micro
+aws cloudformation  create-stack --stack-name drupalstack --region us-east-1 --template-body file://drupal.json --parameters ParameterKey=InstanceType,ParameterValue=t2.micro
 
 #curl -l http://54.165.238.50:8888/job/PC-PipelineJob2/build?delay=0sec
 
