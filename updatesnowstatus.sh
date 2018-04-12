@@ -6,8 +6,12 @@ aws cloudformation  create-stack --stack-name drupalstack --region us-east-1 --t
 
 #curl -l http://54.165.238.50:8888/job/PC-PipelineJob2/build?delay=0sec
 
+sleep 10
+
 resultfrom=`curl -l http://admin:admin@54.162.157.69:8080/job/updatesnow/lastBuild/api/json | sed 's/\,/\,\n/g' | grep result | sed 's/"//g'| cut -d : -f 2 | sed 's/\,//g'`
 echo "STATUS of JENKINS BUILD JOB - " $resultfrom
+
+sleep 10
 
 restapiurl="https://kgv06:password-1@cognizantclouddemo.service-now.com/api/now/table/incident/"$sysid
 if [ $resultfrom == SUCCESS ]
