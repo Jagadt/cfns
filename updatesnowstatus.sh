@@ -14,9 +14,10 @@ echo "STATUS of JENKINS BUILD JOB - " $resultfrom
 sleep 10
 
 restapiurl="https://kgv06:password-1@cognizantclouddemo.service-now.com/api/now/table/incident/"$sysid
+
 if [ $resultfrom == CREATE_COMPLETE ]
 then
 curl  -H "Content-Type: application/json" -X PUT -d '{"work_notes":"Jenkins JOB success","incident_state":"6" }' $restapiurl
 else
-curl  -H "Content-Type: application/json" -X PUT -d '{"work_notes":"Jenkins JOB  failed" }' $restapiurl
+curl  -H "Content-Type: application/json" -X PUT -d '{"work_notes":"Jenkins JOB  is progress" }' $restapiurl
 fi
