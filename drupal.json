@@ -197,11 +197,7 @@
    "fqdn": {
         "value": "[reference(variables('publicIPAddressName')).dnsSettings.fqdn]",
         "type": "string"
-    },
-    "ipaddress": {
-        "value": "[reference(variables('publicIPAddressName')).ipAddress]",
-        "type": "string"
     }
-  }
+   }
   
 }
