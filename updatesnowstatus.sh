@@ -14,7 +14,7 @@ echo "STATUS of JENKINS BUILD JOB - " $resultfrom
 
 sleep 10
 
-restapiurl="https://cognizantclouddemo.service-now.com/api/now/table/incident/"$sysid
+restapiurl="https://kgv06:password-1@cognizantclouddemo.service-now.com/api/now/table/incident/"$sysid
 
 if [ $resultfrom == CREATE_COMPLETE ]
 then
