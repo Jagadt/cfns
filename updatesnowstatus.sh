@@ -16,7 +16,7 @@ sleep 10
 
 restapiurl="https://kgv06:password-1@cognizantclouddemo.service-now.com/api/now/table/incident/"$sysid
 
-if [ $resultfrom == SUCCESS ]
+if [ $resultfrom = "SUCCESS" ]
 then
 curl  -H "Content-Type: application/json" -X PUT -d '{"work_notes":"Jenkins JOB success","incident_state":"6" }' $restapiurl
 else
