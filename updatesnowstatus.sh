@@ -2,7 +2,8 @@
 
 sysid=`curl  -H "Content-Type: application/json" -X POST -d '{"short_description":"Jenkins pipeline triggered to execute service catalog item","assignment_group":"d625dccec0a8016700a222a0f7900d06"}' https://kgv06:password-1@cognizantclouddemo.service-now.com/api/now/table/incident | sed 's/\,/\,\n/g' | grep sys_id | sed 's/"//g'| cut -d : -f 2 | sed 's/\,//g'`
 echo "SYSID=" $sysid
-az group deployment create --name testdrupal1 --resource-group testdrupal1  --template-file C:\jags\arm\drupalonlinux.json --parameters "{\"newStorageAccountName\": {\"value\": \"coedrupalsg34\"}, \"vmDnsName\": {\"value\": \"coedrupal99\"}, \"adminUsername\": {\"value\": \"demouser\"}, \"adminPassword\": {\"value\": \"YUVanika!234\"}, \"mySqlPassword\": {\"value\": \"YUVanika!234\"}, \"vmSize\": {\"value\": \"Standard_D2\"}}"
+az group deployment create --resource-group kubernetesrg --name test1 --template-uri "https://raw.githubusercontent.com/Jagadt/MyARM/master/DrupalonAzureVM.json" --parameters "{\"newStorageAccountName\": {\"value\": \"coedrupalsg34\"}, \"vmDnsName\": {\"value\": \"coedrupal99\"}, \"adminUsername\": {\"value\": \"demouser\"}, \"adminPassword\": {\"value\": \"YUVanika!234\"}, \"mySqlPassword\": {\"value\": \"YUVanika!234\"}, \"vmSize\": {\"value\": \"Standard_D2\"}}"
+
 #curl -l http://54.165.238.50:8888/job/PC-PipelineJob2/build?delay=0sec
 
 sleep 10
